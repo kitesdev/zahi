@@ -128,7 +128,8 @@
                 <t t-foreach="orderlines" t-as="orderline">
                     <tr>
                         <td colspan="4" t-att-style="orderline_index==0 ? 'text-align: left;padding-top: 10px;' : 'text-align: left;'">
-                            <t t-esc="orderline.get_product().display_name" />
+                            <t t-esc="orderline.get_product().display_name" />-
+                            <t t-esc="orderline.get_product().arabic_name" />
                         </td>
                     </tr>
                     <tr>
@@ -252,21 +253,21 @@
                         <span>العميل</span><br />
                     </td>
                 </tr>
-                <tr>
-                    <td style="width: 22%; text-align: left;">
-                        <span style="float:left;">VAT NO.</span>
-                    </td>
-                    <td style="width: 63%; text-align: center;">
-                        <t t-if="env.pos.get_client() and env.pos.get_client().vat">
-                            <span style='text-align: center;'>
-                                <t t-esc="env.pos.get_client().vat or ''" />
-                            </span>
-                        </t>
-                    </td>
-                    <td style="width: 15%;text-align: right;">
-                        <span style="float:right;">الرقم الضريبي</span>
-                    </td>
-                </tr>
+<!--                <tr>-->
+<!--                    <td style="width: 22%; text-align: left;">-->
+<!--                        <span style="float:left;">VAT NO.</span>-->
+<!--                    </td>-->
+<!--                    <td style="width: 63%; text-align: center;">-->
+<!--                        <t t-if="env.pos.get_client() and env.pos.get_client().vat">-->
+<!--                            <span style='text-align: center;'>-->
+<!--                                <t t-esc="env.pos.get_client().vat or ''" />-->
+<!--                            </span>-->
+<!--                        </t>-->
+<!--                    </td>-->
+<!--                    <td style="width: 15%;text-align: right;">-->
+<!--                        <span style="float:right;">الرقم الضريبي</span>-->
+<!--                    </td>-->
+<!--                </tr>-->
                 <tr>
                     <td style="width: 23%; text-align: left;">
                         <span>Phone No.</span>
@@ -280,22 +281,22 @@
                         <span>الهاتف</span>
                     </td>
                 </tr>
-                <tr>
-                    <td style="width: 22%; text-align: left;">
-                        <span style="float:left;">
-                            <t t-esc="'Address'" /></span>
-                    </td>
-                    <td style="width: 63%;text-align: center;">
-                        <t t-if="env.pos.get_client()">
-                            <span style="text-align:center;">
-                                <t t-esc="env.pos.get_client().street or ''" />
-                            </span>
-                        </t>
-                    </td>
-                    <td style="width: 15%;text-align: right;">
-                        <span style="float:right;">العنوان</span>
-                    </td>
-                </tr>
+<!--                <tr>-->
+<!--                    <td style="width: 22%; text-align: left;">-->
+<!--                        <span style="float:left;">-->
+<!--                            <t t-esc="'Address'" /></span>-->
+<!--                    </td>-->
+<!--                    <td style="width: 63%;text-align: center;">-->
+<!--                        <t t-if="env.pos.get_client()">-->
+<!--                            <span style="text-align:center;">-->
+<!--                                <t t-esc="env.pos.get_client().street or ''" />-->
+<!--                            </span>-->
+<!--                        </t>-->
+<!--                    </td>-->
+<!--                    <td style="width: 15%;text-align: right;">-->
+<!--                        <span style="float:right;">العنوان</span>-->
+<!--                    </td>-->
+<!--                </tr>-->
             </table>
             <div style="text-align: center;">-----------------------------------------------------</div>
             <div style="font-size: 14px">

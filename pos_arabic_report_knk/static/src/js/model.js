@@ -5,6 +5,7 @@ odoo.define('pos_arabic_report_knk.model', function(require) {
     var rpc = require('web.rpc');
     var core = require('web.core');
     var _t = core._t;
+    const Orderline = require('point_of_sale.Orderline');
 
     models.load_fields("res.company", [
         "arabic_name",
@@ -79,4 +80,15 @@ odoo.define('pos_arabic_report_knk.model', function(require) {
             return paymentline;
         },
     });
+
+    models.load_fields("product.product", ["arabic_name"]);
+    var orderline_super = models.Orderline.prototype;
+    models.Orderline = models.Orderline.extend({
+
+    export_for_printing: function() {
+        var line = orderline_super.export_for_printing.apply(this,arguments);
+        line.arabic_name=this.product.arabic_name
+        return line;
+    },
+    })
 });
